@@ -2,15 +2,13 @@ import java.time.*;
 
 public class Sun {
     int Air=2;
+   static int i=0;
         public static boolean light () {
-            LocalDateTime LightTimeStart = LocalDateTime.of(2022, Month.DECEMBER, 11, 8, 0);
-            LocalDateTime LightTimeEnd = LocalDateTime.of(2022, Month.DECEMBER, 11, 20, 0);
-        System.out.println(LightTimeStart);
-        System.out.println(LightTimeEnd);
-            return (LightTimeStart.isAfter(LocalDateTime.of(2022, Month.DECEMBER, 11, 8, 0))
+            LocalTime LightTimeStart = LocalTime.of(8, 0, 0);
+            LocalTime LightTimeEnd = LocalTime.of(20, 0, 0);
+            return (LightTimeStart.isAfter(LocalTime.of(8, 0))
                     &&
-                    LightTimeEnd.isBefore(LocalDateTime.of(2022, Month.DECEMBER,
-                            11, 20, 0)));
+                    LightTimeEnd.isBefore(LocalTime.of(20, 0)));
         }
     }
 class Tree extends Sun {
