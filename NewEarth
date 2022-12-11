@@ -7,11 +7,10 @@ public class Sun {
             LocalDateTime LightTimeEnd = LocalDateTime.of(2022, Month.DECEMBER, 11, 20, 0);
         System.out.println(LightTimeStart);
         System.out.println(LightTimeEnd);
-            Boolean LightTime = (
-                    LightTimeStart.isAfter(LocalDateTime.of(2022, Month.DECEMBER, 11, 8, 0)))
-                            &&
-                    LightTimeEnd.isBefore(LocalDateTime.of(2022, Month.DECEMBER, 11, 20, 0));
-            return true;
+            return (LightTimeStart.isAfter(LocalDateTime.of(2022, Month.DECEMBER, 11, 8, 0))
+                    &&
+                    LightTimeEnd.isBefore(LocalDateTime.of(2022, Month.DECEMBER,
+                            11, 20, 0)));
         }
     }
 class Tree extends Sun {
@@ -32,7 +31,8 @@ class Tree extends Sun {
         }
 }
 class Frog extends Sun {
-    int i;
+    int stomach = 0;
+    int i = 0;
 
     private void Eat() {
         double Grass = 1 / 0.0;
