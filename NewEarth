@@ -36,12 +36,17 @@ class Frog extends Sun {
 
     private void Eat() {
         double Grass = 1 / 0.0;
-        if (light()) {
+        if (light() && stomach == 0) {
             for (i = 12; i >= 0; i--) {
                 Grass = Grass--;
+                stomach = stomach++;
             }
         } else {
-            System.out.println("Frog is sleeping now");
+            System.out.println("Frog is not hungry");
+            for (i=0; i <= 12; i++) {
+                stomach = stomach--;
+            }
+            Eat();
         }
     }
 
