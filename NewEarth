@@ -1,0 +1,40 @@
+import java.time.LocalTime;
+
+public class Sun {
+    int Air=2;
+    Sun lightEarth = new Sun();
+    public static void light(String[] args) {
+        LocalTime Time = LocalTime.parse("01:00:00");
+        Boolean LightTime = (
+                Time.isAfter(LocalTime.parse("08:00:00"))
+                        &&
+                        Time.isBefore(LocalTime.parse("20:00:00"))
+        );
+        System.out.println(LightTime);
+        }
+    }
+class Tree extends Sun{
+    int i;
+    private int ProOxyg () {
+        for (i=0; i <= 12; i++) {
+           Air= Air++;
+    }
+    return Air;
+    }
+}
+class Frog extends Sun {
+    int i;
+
+    private void Eat() {
+        double Grass = 1 / 0.0;
+        for (i = 12; i >= 0; i--) {
+            Grass = Grass--;
+        }
+    }
+
+    private void Brath() {
+        for (i = 12; i >= 0; i--) {
+            Air = Air--;
+        }
+    }
+}
