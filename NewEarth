@@ -1,9 +1,9 @@
 import java.time.*;
+import java.util.Scanner;
 
 public class Sun {
-    int Air=2;
-   static int i=0;
-        public static boolean light () {
+    int Air=1;
+        public boolean light () {
             LocalTime LightTimeStart = LocalTime.of(8, 0, 0);
             LocalTime LightTimeEnd = LocalTime.of(20, 0, 0);
             return (LightTimeStart.isAfter(LocalTime.of(8, 0))
@@ -18,7 +18,7 @@ class Tree extends Sun {
         {
             if (light()) {
                 for (i = 0; i <= 12; i++) {
-                    Air = Air++;
+                    Air++;
                 }
             }
             else {
@@ -36,13 +36,13 @@ class Frog extends Sun {
         double Grass = 1 / 0.0;
         if (light() && stomach == 0) {
             for (i = 12; i >= 0; i--) {
-                Grass = Grass--;
-                stomach = stomach++;
+                Grass--;
+                stomach++;
             }
         } else {
             System.out.println("Frog is not hungry");
             for (i=0; i <= 12; i++) {
-                stomach = stomach--;
+                stomach--;
             }
             Eat();
         }
@@ -51,10 +51,21 @@ class Frog extends Sun {
     private void Breath() {
         if (light()) {
             for (i = 12; i >= 0; i--) {
-                Air = Air--;
+                Air--;
             }
         } else {
             System.out.println("Frog is sleeping now");
+        }
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Sun sun = new Sun();
+        Tree tree = new Tree();
+        Frog frog = new Frog();
+            if (sun.light()) {
+                System.out.println("Now we are living");
         }
     }
 }
