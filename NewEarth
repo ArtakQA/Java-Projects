@@ -69,7 +69,6 @@ class Frog extends Base {
 
 class Main {
     public static void main(String[] args) {
-        boolean fff = Sun.light();
         Sun sun = new Sun();
         Tree tree = new Tree();
         Frog frog = new Frog();
