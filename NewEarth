@@ -3,24 +3,29 @@ import java.time.*;
 public class Earth {
     int Air = 1;
     double Grass = 1/0.0;
-    static boolean lightTime;
+
+    static boolean lightTime = false;
 }
 class Sun extends Earth {
+
             public static boolean light () {
-            LocalTime LightTimeStart = LocalTime.of(8, 0, 0);
-            LocalTime LightTimeEnd = LocalTime.of(20, 0, 0);
-            lightTime =  (LightTimeStart.isAfter(LocalTime.of(8, 0))
-                    &&
-                    LightTimeEnd.isBefore(LocalTime.of(20, 0)));
-            return lightTime;
-        }
+                LocalTime LightTimeStart = LocalTime.of(8, 0, 0);
+                LocalTime LightTimeEnd = LocalTime.of(20, 0, 0);
+                LocalTime CurrentTime = LocalTime.now();
+                int CompStart = CurrentTime.compareTo(LightTimeStart);
+                int CompEnd = CurrentTime.compareTo(LightTimeEnd);
+                if (CompStart > 0 && CompEnd < 0) {
+                    lightTime = true;
+                }
+                return lightTime;
+            }
     }
 class Tree extends Earth {
     int i;
 
     private int ProOxyg() {
         {
-            if (Earth.lightTime) {
+            if (Sun.light()) {
                 for (i = 0; i <= 12; i++) {
                     Air++;
                 }
@@ -37,7 +42,7 @@ class Frog extends Earth {
     int i = 0;
 
     private void Eat() {
-        if (Earth.lightTime && stomach == 0) {
+        if (Sun.light() && stomach == 0) {
             for (i = 12; i >= 0; i--) {
                 Grass--;
                 stomach++;
@@ -52,7 +57,7 @@ class Frog extends Earth {
     }
 
     private void Breath() {
-        if (Earth.lightTime) {
+        if (Sun.light()) {
             for (i = 12; i >= 0; i--) {
                 Air--;
             }
@@ -64,10 +69,11 @@ class Frog extends Earth {
 
 class Main {
     public static void main(String[] args) {
+        boolean fff = Sun.light();
         Sun sun = new Sun();
         Tree tree = new Tree();
         Frog frog = new Frog();
-            if (Earth.lightTime) {
+            if (Sun.light()) {
                 System.out.println("Now we are living");
         }
     }
