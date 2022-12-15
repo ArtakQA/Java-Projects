@@ -1,12 +1,12 @@
 import java.time.*;
 
-public class Earth {
+public class Base {
     int Air = 1;
     double Grass = 1/0.0;
 
     static boolean lightTime = false;
 }
-class Sun extends Earth {
+class Sun extends Base {
 
             public static boolean light () {
                 LocalTime LightTimeStart = LocalTime.of(8, 0, 0);
@@ -20,7 +20,7 @@ class Sun extends Earth {
                 return lightTime;
             }
     }
-class Tree extends Earth {
+class Tree extends Base {
     int i;
 
     private int ProOxyg() {
@@ -37,7 +37,7 @@ class Tree extends Earth {
             return Air;
         }
 }
-class Frog extends Earth {
+class Frog extends Base {
     int stomach = 0;
     int i = 0;
 
