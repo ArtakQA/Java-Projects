@@ -1,9 +1,8 @@
 import java.time.*;
 
-public class Base {
+public class World {
     static int Air = 1;
     static  double Grass = 1/0.0;
-
     static boolean lightTime = false;
 }
 class Sun {
@@ -15,17 +14,16 @@ class Sun {
                 int CompStart = CurrentTime.compareTo(LightTimeStart);
                 int CompEnd = CurrentTime.compareTo(LightTimeEnd);
                 if (CompStart > 0 && CompEnd < 0) {
-                    Base.lightTime = true;
+                    World.lightTime = true;
                 }
-                return Base.lightTime;
+                return World.lightTime;
             }
     }
 class Tree {
     int i;
-
     public void ProOxyg() {
         for (i = 0; i <= 12; i++) {
-            Base.Air++;
+            World.Air++;
         }
     }
     public void nightOxig() {
@@ -35,18 +33,17 @@ class Tree {
 class Frog {
     int stomach = 0;
     int i = 0;
-
     public void Eat() {
 
             for (i = 12; i >= 0; i--) {
-                Base.Grass--;
+                World.Grass--;
                 stomach++;
             }
         }
 
     public void Breath() {
          for (i = 12; i >= 0; i--) {
-                Base.Air--;
+                World.Air--;
             }
     }
     public void Sleeping () {
