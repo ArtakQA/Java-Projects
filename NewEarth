@@ -1,79 +1,76 @@
 import java.time.*;
 
 public class Base {
-    int Air = 1;
-    double Grass = 1/0.0;
+    static int Air = 1;
+    static  double Grass = 1/0.0;
 
     static boolean lightTime = false;
 }
-class Sun extends Base {
+class Sun {
 
-            public static boolean light () {
+            public boolean light () {
                 LocalTime LightTimeStart = LocalTime.of(8, 0, 0);
                 LocalTime LightTimeEnd = LocalTime.of(20, 0, 0);
                 LocalTime CurrentTime = LocalTime.now();
                 int CompStart = CurrentTime.compareTo(LightTimeStart);
                 int CompEnd = CurrentTime.compareTo(LightTimeEnd);
                 if (CompStart > 0 && CompEnd < 0) {
-                    lightTime = true;
+                    Base.lightTime = true;
                 }
-                return lightTime;
+                return Base.lightTime;
             }
     }
-class Tree extends Base {
+class Tree {
     int i;
 
-    private int ProOxyg() {
-        {
-            if (Sun.light()) {
-                for (i = 0; i <= 12; i++) {
-                    Air++;
-                }
-            }
-            else {
-                System.out.println("Now is dark time");
-            }
-            }
-            return Air;
+    public void ProOxyg() {
+        for (i = 0; i <= 12; i++) {
+            Base.Air++;
+        }
+    }
+    public void nightOxig() {
+                System.out.println("Now is a Dark time");
         }
 }
-class Frog extends Base {
+class Frog {
     int stomach = 0;
     int i = 0;
 
-    private void Eat() {
-        if (Sun.light() && stomach == 0) {
+    public void Eat() {
+
             for (i = 12; i >= 0; i--) {
-                Grass--;
+                Base.Grass--;
                 stomach++;
             }
-        } else {
-            System.out.println("Frog is not hungry");
-            for (i=0; i <= 12; i++) {
-                stomach--;
-            }
-            Eat();
         }
-    }
 
-    private void Breath() {
-        if (Sun.light()) {
-            for (i = 12; i >= 0; i--) {
-                Air--;
+    public void Breath() {
+         for (i = 12; i >= 0; i--) {
+                Base.Air--;
             }
-        } else {
-            System.out.println("Frog is sleeping now");
-        }
+    }
+    public void Sleeping () {
+        System.out.println("Now Frog is sleeping");
     }
 }
+
 
 class Main {
     public static void main(String[] args) {
         Sun sun = new Sun();
         Tree tree = new Tree();
         Frog frog = new Frog();
-            if (Sun.light()) {
+        sun.light();
+
+            if (sun.light()) {
+                tree.ProOxyg();
+                frog.Eat();
+                frog.Breath();
                 System.out.println("Now we are living");
         }
+            else {
+                tree.nightOxig();
+                frog.Sleeping();
+            }
     }
 }
