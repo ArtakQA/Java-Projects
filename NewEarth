@@ -20,8 +20,8 @@ class Sun {
             }
     }
 class Tree {
-    int i;
     public void ProOxyg() {
+        int i;
         for (i = 0; i <= 12; i++) {
             World.Air++;
         }
@@ -32,7 +32,7 @@ class Tree {
 }
 class Frog {
     int stomach = 0;
-    int i = 0;
+   private int i = 0;
     public void Eat() {
 
             for (i = 12; i >= 0; i--) {
