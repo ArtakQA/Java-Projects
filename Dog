@@ -18,32 +18,36 @@ public class Dog {
         return name;
     }
 
-    public void setName(String name) {
+    public String setName(String name) {
         this.name = name;
+        return name;
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public int setAge(int age) {
         this.age = age;
+        return age;
     }
 
     public String getBreed() {
         return breed;
     }
 
-    public void setBreed(String breed) {
+    public String setBreed(String breed) {
         this.breed = breed;
+        return breed;
     }
 
     public boolean isTrained() {
         return isTrained;
     }
 
-    public void setTrained(boolean trained) {
+    public boolean setTrained(boolean trained) {
         isTrained = trained;
+        return trained;
     }
 
     // other functions
